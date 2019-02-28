@@ -1,7 +1,7 @@
 {
   "name": "api-acid",
   "version": "1.0.0",
-  "description": "A litle API for acidlabs",
+  "description": "A little API for acidlabs",
   "main": "app.js",
   "scripts": {
     "start": "node_modules/.bin/nodemon app.js --exec babel-node --",
@@ -16,6 +16,7 @@
   "author": "Alan Munoz",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "body-parser": "^1.18.3",

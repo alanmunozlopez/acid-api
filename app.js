@@ -1,21 +1,12 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+"use strict";
 
-// Set express app
+import express from 'express';
+import api from './routes';
+
 const app = express();
 
-// Parse requests
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-// hello dude
-app.get('/api/v1/hello', (req, res) => {
-  res.status(200).send({
-    success: true,
-    message: 'The hello is here dude',
-    hello: { msg: 'Hey Alan! You are welcome!' }
-  })
-});
+// require middleware
+app.use('/api', api);
 
 const PORT = 5000;
 
