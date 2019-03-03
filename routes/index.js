@@ -20,12 +20,31 @@ api.use(function(req, res, next) {
 
 // hello dude
 api.get('/v1/hello', async (req, res) => {
-  let weather = await CheckWeather();
-  res.status(200).send({
+  
+  let response = {
     success: true,
-    message: 'The hello is here dude',
-    hello: { msg: 'Hey Alan! You are welcome!' },
-    weather
+    message: 'All ok dude'
+  };
+
+  let forecast = {};
+  
+  try {
+    let location = {
+      lat: req.query.lat,
+      lng: req.query.lng
+    };
+  
+    console.log(`location ${JSON.stringify(location)}`);
+  
+    forecast = await CheckWeather(location); 
+  } catch (error) {
+    response.success = false;
+    response.message = 'A problem on the request'
+  }
+  res.status(200).send({
+    success: response.success,
+    message: response.message,
+    forecast
   })
 });
 
