@@ -4,14 +4,13 @@ import { API_KEY, FORECAST_URL } from '../../config/darksky';
 
 const DarkskyService = {};
 
-DarkskyService.forecastByLocation = async location => {
+DarkskyService.forecastByLocation = async capital => {
   try {
-    const url = `${FORECAST_URL}${API_KEY}/${location.lat},${location.lng}`;
+    const url = `${FORECAST_URL}${API_KEY}/${capital.lat},${capital.lng}`;
     const response = await axios.get(url);
     const data = await response.data.currently;
-    
     let forecast = {
-      location,
+      capital,
       details: data
     };
 

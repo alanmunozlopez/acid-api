@@ -18,9 +18,10 @@ RestCountriesService.capitalLocationByCountry = async countryName => {
     let capital = {
       name: capitalName,
       lat: latlngCapital[0],
-      lng: latlngCapital[1]
+      lng: latlngCapital[1],
+      country: countryName
     };
-
+    
     return capital;
   } catch (error) {
     console.log(error);
