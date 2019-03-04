@@ -1,0 +1,9 @@
+Dockerfile
+node_modules
+build
+.log
+.md
+.git
+.gitignore
+.yarn-error
+.lock
