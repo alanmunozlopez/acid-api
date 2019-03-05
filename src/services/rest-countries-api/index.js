@@ -10,10 +10,16 @@ RestCountriesService.capitalLocationByCountry = async countryName => {
     let responseCapitalByCountry = await axios.get(urlCapitalName);
     let capitalName = await responseCapitalByCountry.data[0].capital;
 
+    capitalName = capitalName.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+
+    console.log(`CapitalName: ${capitalName}`);
+
     let urlCapitalCoords = `${REST_COUNTRIES_URL}capital/${capitalName}`;
     let responseCapitalCoordsByName = await axios.get(urlCapitalCoords);
 
     let latlngCapital = await responseCapitalCoordsByName.data[0].latlng;
+
+    console.log(`LatLongCapital: ${latlngCapital}`);
 
     let capital = {
       name: capitalName,

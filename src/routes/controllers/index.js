@@ -17,6 +17,8 @@ let CheckWeather = async (location) => {
       }
     });
 
+    console.log(`CountryName: ${country.long_name}`);
+
     let cachedCountry = await RedisClient.getCache(country.long_name);
 
     if(cachedCountry) {
