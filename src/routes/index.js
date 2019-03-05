@@ -19,7 +19,7 @@ api.use(function(req, res, next) {
 });
 
 // hello dude
-api.get('/v1/hello', async (req, res) => {
+api.get('/forecast', async (req, res) => {
   
   let response = {
     success: true,
