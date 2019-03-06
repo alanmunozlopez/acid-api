@@ -17,6 +17,10 @@ let CheckWeather = async (location) => {
       }
     });
 
+    if(country.long_name == 'United States') {
+      country.long_name = 'United States of America';
+    }
+
     console.log(`CountryName: ${country.long_name}`);
 
     let cachedCountry = await RedisClient.getCache(country.long_name);
